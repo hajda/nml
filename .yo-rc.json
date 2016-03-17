@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "baseName": "nml",
+    "packageName": "hu.nml",
+    "packageFolder": "hu/nml",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "no",
+    "useSass": true,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": true,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "d28c9e1fd2a4ba5951be3ca8e39a56c4eb423bbd",
+    "testFrameworks": [
+      "protractor"
+    ]
+  }
+}
