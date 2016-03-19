@@ -1,0 +1,27 @@
+<div id="nml-desktop-header-background" ng-class="{'active-header': scrollDelta == 'small-delta'}"></div>
+<div id="nml-menu-container-flex-wrapper" class="clearfix" ng-show="menuVisibility">
+    <nav id="nml-menu-container" class="clearfix" ng-class="{'active-header': scrollDelta == 'small-delta'}">
+        <ul id="nml-menu" class="clearfix" ng-class="{'active-header': scrollDelta == 'small-delta'}">
+            <li class="nml-menu-item nml-control" ng-click="onMenuItemClick($event)">Home</li>
+            <li class="nml-menu-item nml-control" ng-click="onMenuItemClick($event)">News</li>
+            <li class="nml-menu-item nml-control" ng-click="onMenuItemClick($event)">Press</li>
+            <li class="nml-menu-item nml-control" ng-click="onMenuItemClick($event)">Media</li>
+            <li class="nml-menu-item nml-control" ng-click="onMenuItemClick($event)">Bio</li>
+            <li class="nml-menu-item nml-control" ng-click="onMenuItemClick($event)">Disco</li>
+            <!--<li class="nml-menu-item nml-control" ng-click="onMenuItemClick($event)">Buy</li>-->
+            <!--<li class="nml-menu-item nml-control" ng-click="onMenuItemClick($event)">Forums</li>-->
+            <!--<li class="nml-menu-item nml-control" ng-click="onMenuItemClick($event)">Share</li>-->
+        </ul>
+    </nav>
+</div>
+
+<div id="nml-mobile-header-background" ng-class="{'active-header': scrollDelta == 'small-delta'}"></div>
+<div id="nml-band-logo-container">
+    <img id="nml-band-logo" src="assets/images/band-logo.png" ng-class="{'active-header': scrollDelta == 'small-delta'}"/>
+</div>
+<div id="nml-hamburger-menu" ng-click="toggleMenu()" class="glyphicon glyphicon-menu-hamburger"></div>
+<!--<div style="position: fixed; top: 50px; right:250px;">-->
+    <!--MENU VISIBLE: {{menuVisibility}}<br>-->
+    <!--VIEWPORT WIDTH: {{viewportWidth}}px<br>-->
+    <!--SCROLL DELTA: {{scrollDelta}}-->
+<!--</div>-->

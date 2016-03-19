@@ -10,9 +10,9 @@ $background-dark: #333;
 @import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
-@import "responsivePage";
-@import "barbaHeader";
-@import "nmlPages";
+//@import "responsivePage";
+@import "nav";
+//@import "nmlPages";
 
 html {
     width: 100%;
@@ -252,7 +252,7 @@ ul#strength {
 /* jhipster-needle-scss-add-main JHipster will add new css style */
 
 
-.container {
+[ui-view="nav"] {
     width: 100%;
     margin-top: $big-header-size; // ensure that the header is initially thick
     padding: 0;
@@ -265,4 +265,10 @@ ul#strength {
     &.thin-margin {
         margin-top: $small-header-size;
     }
+}
+
+#nml-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }

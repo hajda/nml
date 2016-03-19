@@ -6,7 +6,7 @@
         <title>nml</title>
         <meta name="description" content="">
         <meta name="google" value="notranslate">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width" initial-scale="1.0">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css assets/styles/vendor.css -->
         <!-- bower:css -->
@@ -21,16 +21,14 @@
         <!--[if lt IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
         <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div>
 
-        <!--<div ui-view="navbar" ng-cloak=""></div>-->
-        <!--<div ui-view="nml-barba-header" ng-cloak=""></div>-->
+        <div ui-view="navbar" ng-cloak=""></div>
 
         <div id="nml-container" class="container" ng-class="{'thin-margin': scrollDelta == 'big-delta', 'thick-margin': scrollDelta == 'small-delta'}">
 
-            <!--<div class="well" ui-view="content"></div>-->
             <div ui-view="content"></div>
+
             <!-- <div class="footer">
                 <p translate="footer">This is your footer</p>
             </div>-->
@@ -156,5 +154,20 @@
     <script src="scripts/components/auth/provider/auth.session.service.js"></script>
     <script src="scripts/app/account/sessions/sessions.js"></script>
     <script src="scripts/app/account/sessions/sessions.controller.js"></script>
+
+        <!-- index -->
+    <script src="scripts/app/index/index.js"></script>
+        <!-- end index -->
+
+        <!-- nml-smooth-scroll -->
+    <script src="scripts/components/smoothScroll/smoothScroll.directive.js"></script>
+    <script src="scripts/components/smoothScroll/smoothScroll.controller.js"></script>
+    <script src="scripts/components/smoothScroll/smoothScroll.service.js"></script>
+        <!-- end nml-smooth-scroll -->
+
+        <!-- nml-nav -->
+    <script src="scripts/components/nav/nav.directive.js"></script>
+    <script src="scripts/components/nav/nav.controller.js"></script>
+        <!-- end nml-nav -->
 </body>
 </html>
