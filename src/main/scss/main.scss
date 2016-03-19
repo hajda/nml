@@ -10,9 +10,8 @@ $background-dark: #333;
 @import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
-//@import "responsivePage";
+@import "index";
 @import "nav";
-//@import "nmlPages";
 
 html {
     width: 100%;

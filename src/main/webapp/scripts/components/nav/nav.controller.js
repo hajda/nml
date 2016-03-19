@@ -17,8 +17,9 @@ function navController($scope, $window, $location, NmlSmoothScroll) {
         }
     };
 
-    $scope.onMenuItemClick = function() {
+    $scope.onMenuItemClick = function($event, pageName) {
         $scope.hideMenu();
+        $scope.scrollTo(pageName);
     };
 
     function getViewportSize() {
@@ -28,7 +29,7 @@ function navController($scope, $window, $location, NmlSmoothScroll) {
     }
 
     function isDesktopView() {
-        return getViewportSize() > 720;
+        return getViewportSize() > 703;
     }
 
     // //////////////// observing orientation and resize ///////////////////////////////////

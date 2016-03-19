@@ -8,7 +8,6 @@ smoothScrollController.$inject = ['$scope', '$window', '$location', 'NmlSmoothSc
 function smoothScrollController($scope, $window, $location, NmlSmoothScroll) {
     angular.element($window).bind(
         "scroll", function() {
-            //console.log(window.pageYOffset);
             if(window.pageYOffset > 0) {
                 $scope.scrollDelta = 'big-delta';
             } else {
@@ -25,7 +24,7 @@ function smoothScrollController($scope, $window, $location, NmlSmoothScroll) {
         }
         // set the location.hash to the id of
         // the element you wish to scroll to.
-        //$location.hash('bottom');
+        $location.hash('bottom');
 
         // call $anchorScroll()
         NmlSmoothScroll.scrollTo(eID, offset);
