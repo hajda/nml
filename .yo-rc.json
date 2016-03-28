@@ -8,7 +8,7 @@
     "clusteredHttpSession": "no",
     "websocket": "no",
     "databaseType": "sql",
-    "devDatabaseType": "h2Memory",
+    "devDatabaseType": "h2Disk",
     "prodDatabaseType": "mysql",
     "searchEngine": "no",
     "useSass": true,
@@ -16,7 +16,7 @@
     "frontendBuilder": "grunt",
     "enableTranslation": true,
     "enableSocialSignIn": false,
-    "rememberMeKey": "d28c9e1fd2a4ba5951be3ca8e39a56c4eb423bbd",
+    "rememberMeKey": "15e60af8964181a50b25871a4786432c638c52d4",
     "testFrameworks": [
       "protractor"
     ]

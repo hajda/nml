@@ -2,8 +2,8 @@
 
 angular.module('nmlApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate',
     'ngResource', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload',
-    'ui.bootstrap', 'ui.router',  'infinite-scroll', 'angular-loading-bar'])
     // jhipster-needle-angularjs-add-module JHipster will add new module here
+    'ui.bootstrap', 'ui.router',  'infinite-scroll', 'angular-loading-bar'])
 
     .run(function ($rootScope, $location, $window, $http, $state, $translate, Language, Auth, Principal, ENV, VERSION) {
         // update the window title using params in the following
@@ -29,6 +29,7 @@ angular.module('nmlApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalprec
             if (Principal.isIdentityResolved()) {
                 Auth.authorize();
             }
+
 
             // Update the language
             Language.getCurrent().then(function (language) {
@@ -85,19 +86,20 @@ angular.module('nmlApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalprec
             'abstract': true,
             views: {
                 'navbar@': {
-                    templateUrl: 'scripts/app/nav/nav.html'
+                    templateUrl: 'scripts/app/nav/nav.html'//,
+                    //controller: 'NavbarController'
                 }
-            }//,
-            //resolve: {
-            //    authorize: ['Auth',
-            //        function (Auth) {
-            //            return Auth.authorize();
-            //        }
-            //    ],
-            //    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-            //        $translatePartialLoader.addPart('global');
-            //    }]
-            //}
+            },
+            resolve: {
+                authorize: ['Auth',
+                    function (Auth) {
+                        return Auth.authorize();
+                    }
+                ],
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('global');
+                }]
+            }
         });
 
         $httpProvider.interceptors.push('errorHandlerInterceptor');

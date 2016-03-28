@@ -4,13 +4,29 @@ $big-header-size: 100px;
 $small-header-size: 40px;
 $scroll-transition: 0.2s ease-out all;
 $background-dark: #333;
+
+$nml-menu-item-font-size-desktop: 12pt;
+$nml-small-header-size-desktop: 40px;
+$nml-hamburger-menu-medium-size: 64px;
+$nml-hamburger-menu-medium-fixed-position: 8px;
+$nml-hamburger-menu-medium-font-size: $nml-hamburger-menu-medium-size / 1.333333333333;
+
+$nml-band-logo-width-720-portrait: 215px;
+$nml-band-logo-width-desktop: 256px;
+$nml-header-size-720-portrait: 100px;
+$nml-header-size-desktop: 115px;
+
+$foreground-color: #555;
+$nml-gap-720-portrait: 8px;
+
+$nml-menu-item-font-size-720-portrait: 24px;
 // end var
 
 // bower:scss
 @import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
-@import "index";
+@import "page";
 @import "nav";
 
 html {

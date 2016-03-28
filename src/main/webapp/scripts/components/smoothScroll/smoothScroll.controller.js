@@ -20,8 +20,9 @@ function smoothScrollController($scope, $window, $location, NmlSmoothScroll) {
     $scope.scrollTo = function (eID){
         var offset = 0;
         if ($scope.scrollDelta == 'small-delta') { // if the header is big
-            offset = 60 - window.pageYOffset; // correct the scroll target, because tha header will be smaller by 60px
+            offset = 110 - window.pageYOffset; // correct the scroll target, because tha header will be smaller by 60px
         }
+
         // set the location.hash to the id of
         // the element you wish to scroll to.
         //$location.hash('bottom');

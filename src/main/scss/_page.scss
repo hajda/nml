@@ -1,0 +1,22 @@
+
+#nml-pages {
+    transition: ease-out .4s;
+    margin-top: 1px;
+    &.active-header {
+        margin-top: $nml-header-size-720-portrait + $nml-gap-720-portrait + 5;
+    }
+    .nml-page {
+        padding-top: 50px;
+        padding-bottom: 20px;
+        margin-bottom: 240px;
+    }
+}
+
+.nml-page {
+    background-color: #333;
+}
+
+.nml-page-marker {
+    height: $small-header-size;
+    background-color: #0000AA;
+}

@@ -1,16 +1,4 @@
-$nml-hamburger-menu-medium-size: 64px;
-$nml-hamburger-menu-medium-fixed-position: 8px;
-$nml-hamburger-menu-medium-font-size: $nml-hamburger-menu-medium-size / 1.333333333333;
 
-$nml-band-logo-width-720-portrait: 215px;
-$nml-band-logo-width-desktop: 256px;
-$nml-header-size-720-portrait: 100px;
-$nml-header-size-desktop: 115px;
-
-$foreground-color: #555;
-$nml-gap-720-portrait: 8px;
-
-$nml-menu-item-font-size-720-portrait: 24px;
 
 //$foreground-color: #e1ddcf;
 
@@ -41,6 +29,11 @@ $nml-menu-item-font-size-720-portrait: 24px;
     }
     &:active {
         background-color: #000;
+    }
+    &:focus {
+        color: #467e9f;
+        border-color: #467e9f;
+        outline: none;
     }
 
     @media screen and (min-width: 800px) {
@@ -144,25 +137,19 @@ $nml-menu-item-font-size-720-portrait: 24px;
                         background-color: #222;
                         transition: ease-out .2s;
                     }
+                    &:focus {
+                      color: #467e9f;
+                      outline: none;
+                    }
                 }
             }
         }
     }
 }
 
-#nml-pages {
-    margin-top: $nml-header-size-720-portrait + $nml-gap-720-portrait;
-    .nml-page {
-        padding-top: 50px;
-        padding-bottom: 20px;
-        margin-bottom: 240px;
-    }
-}
 
 /* ------------------------------------------- Desktop and landscape view ------------------------------------------- */
 
-$nml-menu-item-font-size-desktop: 12pt;
-$nml-small-header-size-desktop: 40px;
 
 @media screen and (min-width: 721px) {
     #nml-hamburger-menu {
@@ -194,8 +181,6 @@ $nml-small-header-size-desktop: 40px;
   }
 
   #nml-desktop-header-background {
-      transition: ease-out .3s;
-      height: $nml-small-header-size-desktop;
       position: fixed;
       top: 0;
       left: 0;
@@ -204,6 +189,8 @@ $nml-small-header-size-desktop: 40px;
       background-color: rgba(0, 0, 0, .5);
       border-bottom: double #FFFFFF;
 
+      transition: ease-out .3s;
+      height: $nml-small-header-size-desktop;
       &.active-header {
           height: $nml-header-size-desktop;
       }
@@ -260,6 +247,10 @@ $nml-small-header-size-desktop: 40px;
                   &:active {
                       background-color: #222;
                       transition: ease-out .2s;
+                  }
+                  &:focus {
+                      //color: #467e9f;
+                      outline: #FFF solid 1px;
                   }
               }
             }

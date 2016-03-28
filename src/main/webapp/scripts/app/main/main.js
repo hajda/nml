@@ -3,9 +3,9 @@
 angular.module('nmlApp')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('welcome', {
+            .state('home', {
                 parent: 'site',
-                url: '/welcome-jh',
+                url: '/',
                 data: {
                     authorities: []
                 },
