@@ -3,12 +3,20 @@
     transition: ease-out .4s;
     margin-top: 1px;
     &.active-header {
-        margin-top: $nml-header-size-720-portrait + $nml-gap-720-portrait + 5;
+        // enable the next line if you don't want to overlap the top of the page with the header!
+        //margin-top: $nml-header-size-720-portrait + $nml-gap-720-portrait + 5;
     }
     .nml-page {
+        .nml-page-title {
+            color: whitesmoke;
+        }
         padding-top: 50px;
         padding-bottom: 20px;
         margin-bottom: 240px;
+    }
+
+    #home {
+        padding: 0;
     }
 }
 

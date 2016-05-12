@@ -2,7 +2,14 @@
 
 //$foreground-color: #e1ddcf;
 
+#nml-band-logo-container { // make the band logo overlap everything
+    z-index: 9999;
+}
 
+div[ui-view="navbar"] {
+    position: fixed;
+    z-index: 9999;
+}
 
 #nml-hamburger-menu { // only on < 720px...
     transition: opacity 1s linear;
@@ -53,6 +60,10 @@
 /* ------------------------------------------------- MOBILE PHONES -------------------------------------------------- */
 @media screen and (max-width: 720px) {
 
+    .nml-page-marker {
+        height: 0;
+    }
+
     #nml-band-logo-container {
         //background-color: #0F6AB4;
         position: fixed;
@@ -85,11 +96,12 @@
         left: 0;
 
         width: 100%;
-        background-color: black;
+        background-color: black; // TODO extract to variable
         border-bottom: double #FFFFFF;
 
         &.active-header {
             height: $nml-header-size-720-portrait;
+            background-color: rgba(0, 0, 0, .5); // TODO extract to variable
         }
     }
 
@@ -119,8 +131,8 @@
                 li {
                     //float: left;
                     box-sizing: border-box;
-                    border-top: solid 1px #444;
-                    border-bottom: solid 1px #222;
+                    //border-top: solid 1px #444;
+                    //border-bottom: solid 1px #222;
                     padding: $nml-gap-720-portrait;
                     //width: 100%;
                     //width: 50%;
@@ -186,13 +198,14 @@
       left: 0;
 
       width: 100%;
-      background-color: rgba(0, 0, 0, .5);
+      background-color: #000000;
       border-bottom: double #FFFFFF;
 
       transition: ease-out .3s;
       height: $nml-small-header-size-desktop;
       &.active-header {
           height: $nml-header-size-desktop;
+          background-color: rgba(0, 0, 0, .5);
       }
   }
 
