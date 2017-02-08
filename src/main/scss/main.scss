@@ -11,8 +11,8 @@ $nml-hamburger-menu-medium-size: 64px;
 $nml-hamburger-menu-medium-fixed-position: 8px;
 $nml-hamburger-menu-medium-font-size: $nml-hamburger-menu-medium-size / 1.333333333333;
 
-$nml-band-logo-width-720-portrait: 215px;
-$nml-band-logo-width-desktop: 256px;
+$nml-band-logo-width-720-portrait: 125px;
+$nml-band-logo-width-desktop: 180px;
 $nml-header-size-720-portrait: 100px;
 $nml-header-size-desktop: 115px;
 
@@ -20,6 +20,8 @@ $foreground-color: #555;
 $nml-gap-720-portrait: 8px;
 
 $nml-menu-item-font-size-720-portrait: 24px;
+
+$nml-menu-font-color: #DBCBA1;
 // end var
 
 // bower:scss
@@ -39,7 +41,10 @@ body {
     width: 100%;
     background-color: black;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: white;
+}
+
+#nml-container {
+    background-color: black;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -47,6 +52,7 @@ body {
 }
 
 .development {
+    visibility: hidden;
     position: absolute;
     width: 149px;
     height: 149px;

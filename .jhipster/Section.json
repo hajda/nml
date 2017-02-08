@@ -1,0 +1,22 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "leadin",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170131202400",
+    "dto": "mapstruct",
+    "service": "no",
+    "pagination": "no"
+}

@@ -1,0 +1,60 @@
+<div id="nml-media-page-marker" class="nml-page-marker">
+    <span id="nml-media-header-title" class="nml-header-title">Media</span>
+</div>
+<div id="media" class="nml-page"><!--TODO prefix and rename id: "media" ---► "nml-media-page"-->
+    <div id="nml-media-page-side" class="nml-page-side nml-page-left-side">
+        <!--<div class="nml-animation-element nml-page-side-eye-driver"></div>-->
+        <div id="nml-media-sub-menu" class="nml-sub-menu">
+            <div id="nml-media-photo-menu-item" class="nml-sub-menu-item" ng-click="selectSubMenu('photo')" ng-class="{active: subMenu == 'photo'}"><span class="nml-sub-menu-label">Photo</span></div>
+            <div id="nml-media-video-menu-item" class="nml-sub-menu-item" ng-click="selectSubMenu('video')" ng-class="{active: subMenu == 'video'}"><span class="nml-sub-menu-label">Video</span></div>
+        </div>
+    </div>
+
+
+    <div id="nml-media-page-content" class="nml-page-content">
+
+        <div id="nml-video-container" ng-show="subMenu == 'video'">
+
+            <div class="nml-video-item" ><!--ng-repeat="video in videos"-->
+                <div class="nml-video-embed">
+                    <iframe width="420" height="315" src="https://www.youtube.com/embed/lHje9w7Ev4U?list=RDr5KtEToyWrI" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="nml-video-caption">{{video.caption}}</div>
+                <div class="nml-video-description">{{video.description}}</div>
+            </div>
+
+            <div class="nml-video-item" ><!--ng-repeat="video in videos"-->
+                <div class="nml-video-embed">
+                    <iframe width="420" height="315" src="https://www.youtube.com/embed/5a1rZrnUIRg" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="nml-video-caption">{{video.caption}}</div>
+                <div class="nml-video-description">{{video.description}}</div>
+            </div>
+
+            <div class="nml-video-item" ><!--ng-repeat="video in videos"-->
+                <div class="nml-video-embed">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/XNQF9nZncPA?list=RDr5KtEToyWrI" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="nml-video-caption">{{video.caption}}</div>
+                <div class="nml-video-description">{{video.description}}</div>
+            </div>
+        </div>
+
+        <div id="nml-photo-container" ng-show="subMenu == 'photo'">
+
+            <div class="nml-photo-item" ><!--ng-repeat="video in videos"-->
+                <a href="../../../assets/images/photo/1.jpg" target="_blank" class="nml-no-link-decoration"><img src="../../../assets/images/photo/1.jpg"></a>
+            </div>
+
+            <div class="nml-photo-item" ><!--ng-repeat="video in videos"-->
+                <a href="../../../assets/images/photo/2.jpg" target="_blank" class="nml-no-link-decoration"><img src="../../../assets/images/photo/2.jpg"></a>
+            </div>
+
+            <div class="nml-photo-item" ><!--ng-repeat="video in videos"-->
+                <a href="../../../assets/images/photo/3.jpg" target="_blank" class="nml-no-link-decoration"><img src="../../../assets/images/photo/3.jpg"></a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<section id="nml-gap-media" class="nml-gap"></section><!--TODO rename id: "nml-gap" ---► "nml-page-gap"-->

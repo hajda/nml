@@ -1,7 +1,45 @@
+.nml-page {
+    //
+
+    background-color: #333;
+    display: flex;
+    flex-direction: row;
+}
+
+.nml-page-side {
+    background-color: #080606;
+    //
+
+    width: 25%
+}
+
+.nml-page-content {
+    background-color: #120e0d;
+    //
+
+    flex-grow: 1;
+}
+
+
+// /////////////////////////////////////////////////////////////////////////////////////
+
+
 
 #nml-pages {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+
+    //background-image: url("../images/1b.jpg");
+    background-position: top left;
+    background-attachment: fixed;
+    background-size: cover;
+
     transition: ease-out .4s;
     margin-top: 1px;
+
+    background-color: black;
     &.active-header {
         // enable the next line if you don't want to overlap the top of the page with the header!
         //margin-top: $nml-header-size-720-portrait + $nml-gap-720-portrait + 5;
@@ -10,21 +48,232 @@
         .nml-page-title {
             color: whitesmoke;
         }
-        padding-top: 50px;
-        padding-bottom: 20px;
-        margin-bottom: 240px;
+        //padding-top: 50px;
+        //padding-bottom: 20px;
+        //margin-bottom: 0;
     }
 
     #home {
         padding: 0;
     }
 }
+.nml-page-title {
 
-.nml-page {
-    background-color: #333;
 }
 
 .nml-page-marker {
     height: $small-header-size;
-    background-color: #0000AA;
+    background-color: #4C1E24;
+}
+
+/* gaps */
+
+.nml-gap {
+    height: 400px;
+    background-position: center;
+    background-attachment: fixed;
+    //filter: blur(5px);
+}
+
+
+#nml-gap-home {
+    background-image: url("../images/1v2.jpg");
+}
+#nml-gap-news {
+    background-image: url("../images/2b2.jpg");
+}
+#nml-gap-press {
+    background-image: url("../images/1v2.jpg");
+}
+#nml-gap-media {
+    background-image: url("../images/3b2.jpg");
+}
+#nml-gap-bio {
+    background-image: url("../images/2b2.jpg");
+}
+#nml-gap-disco {
+    background-image: url("../images/3b2.jpg");
+}
+
+
+// --------------------------- .nml-page ---------------------------
+
+.nml-page-left-side {
+
+}
+
+// --------------------------- media page ---------------------------
+
+.nml-animation-element {
+
+    // position
+    transition: 1s .5s ease-out;
+    position: relative;
+    top: 30%;
+    left: 0;
+
+    &.in-view {
+        left: 85%;
+        opacity: .7;
+    }
+}
+
+.nml-page-side-eye-driver {
+    // shape
+    width: 10%;
+    height: 40%;
+
+    // color
+    background: url("../images/floatin.svg");
+    //background-repeat: no-repeat;
+    background-size: 25% 100%;
+    //background-color: #0d3349;
+    color: white;
+    opacity: 0;
+
+    // display
+    display: block;
+    text-indent: -9999px;
+}
+
+
+.nml-video-item {
+    display: inline-block;
+    margin: 10px;
+    margin-bottom: 20px;
+}
+.nml-video-embed > iframe{
+    border-radius: 3px;
+}
+.nml-video-caption {
+    text-align: center;
+    font-size: 150%;
+}
+.nml-video-description {
+}
+
+.nml-video-caption, .nml-video-description {
+    color: $nml-menu-font-color;
+}
+
+
+
+
+.nml-video-container, .nml-photo-container {
+    transition: 1s fade-in;
+}
+
+.nml-photo-item {
+    display: inline-block;
+    margin: 15px;
+    a {
+        img {
+            max-width: 300px;
+        }
+    }
+}
+.nml-no-link-decoration {
+    text-decoration: none;
+}
+
+#nml-media-sub-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    .nml-sub-menu-item {
+        height: 100px;
+        flex-grow: 1;
+        background-size: 100%;
+        background-color: rgba(255,255,255,.1);
+        transition: .6s ease-out;
+
+        &:hover {
+            background-size: 85%;
+            background-color: rgba(255,255,255,.4);
+        }
+        &.active {
+            background-color: rgba(255,255,255,.25);
+        }
+
+        .nml-sub-menu-label {
+            font-size: 150%;
+            padding: 8px;
+            text-align: right;
+            vertical-align: middle;
+            line-height: 90px;
+        }
+    }
+
+    #nml-media-photo-menu-item {
+        //background-image:
+    }
+    #nml-media-video-menu-item {
+        //background-image:
+    }
+}
+
+.nml-sub-menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    .nml-sub-menu-label {
+        flex-grow: 1;
+    }
+}
+
+
+// ------------------------------- NEWS PAGE --------------------------------------
+
+#nml-news-container {
+    max-height: 95%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.nml-news-item {
+    margin: 10px;
+    margin-bottom: 30px;
+
+    .image {
+        float: left;
+        margin: 5px;
+    }
+}
+
+
+// ========================= FOOTER ______________________________
+
+#nml-footer {
+    background-color: #4C1E24;
+    padding: 10px 5px;
+
+    #nml-copyright-info {
+        color: #100707;
+        text-align: center;
+        margin: auto;
+    }
+
+    .social-icon {
+        display: inline-block;
+        margin: 3px;
+
+        width: 32px;
+        height: 32px;
+        border-radius: 5px;
+
+        text-align: center;
+        font-size: 24px;
+
+        background-color: #100707;
+        color: #4C1E24;
+
+        transition: .3s linear;
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: #9D4E02;
+        }
+    }
 }

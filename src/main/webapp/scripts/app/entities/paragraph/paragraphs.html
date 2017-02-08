@@ -1,0 +1,60 @@
+<div>
+    <h2 translate="nmlApp.paragraph.home.title">Paragraphs</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="paragraph.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                        translate="nmlApp.paragraph.home.createLabel">Create new Paragraph
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="nmlApp.paragraph.text">Text</span></th>
+                    <th><span translate="nmlApp.paragraph.paragraphs_in_section">paragraphs_in_section</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="paragraph in paragraphs track by paragraph.id">
+                    <td><a ui-sref="paragraph.detail({id:paragraph.id})">{{paragraph.id}}</a></td>
+                    <td>{{paragraph.text}}</td>
+                    <td>
+                        <a ui-sref="section.detail({id:paragraph.paragraphs_in_sectionId})">{{paragraph.paragraphs_in_sectionId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="paragraph.detail({id:paragraph.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="paragraph.edit({id:paragraph.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="paragraph.delete({id:paragraph.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

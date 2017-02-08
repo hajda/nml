@@ -1,0 +1,24 @@
+{
+    "nmlApp": {
+        "paragraph" : {
+            "home": {
+                "title": "Paragraphs",
+                "createLabel": "Créer un nouveau Paragraph",
+                "createOrEditLabel": "Créer ou éditer un Paragraph",
+                "search": "Search for Paragraph"
+            },
+            "created": "Un nouveau Paragraph a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Paragraph avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Paragraph avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Paragraph {{ id }} ?"
+            },
+            "detail": {
+                "title": "Paragraph"
+            },
+            "text": "Text",
+            "paragraphs_in_section": "Paragraphs_in_section"
+        }
+    }
+}
+

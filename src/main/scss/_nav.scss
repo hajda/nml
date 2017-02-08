@@ -1,17 +1,53 @@
 
 
 //$foreground-color: #e1ddcf;
-
-#nml-band-logo-container { // make the band logo overlap everything
-    z-index: 9999;
+#nml-band-logo-container { // make the band logo overlap everything except the page title
+    // z-index only works on positioned elements (position:absolute, position:relative, or position:fixed)
+    z-index: 9998;
 }
 
 div[ui-view="navbar"] {
     position: fixed;
-    z-index: 9999;
+    // z-index only works on positioned elements (position:absolute, position:relative, or position:fixed)
+    z-index: 9998; // make the navbar overlap everything
 }
 
-#nml-hamburger-menu { // only on < 720px...
+#nml-menu li.nml-menu-item {
+    position: relative;
+    // z-index only works on positioned elements (position:absolute, position:relative, or position:fixed)
+    z-index: 9998; // make the menu items overlap everything
+}
+
+.nml-header-title {
+    position: relative;
+    // z-index only works on positioned elements (position:absolute, position:relative, or position:fixed)
+    z-index: 9999; // make the paghe title overlap everything
+
+
+    font-size: 200%;
+    color: $nml-menu-font-color;
+    margin-left: 75 + $nml-gap-720-portrait * 6;
+
+    transition: .3s ease-out;
+}
+
+#nml-home-header-title {
+
+    position: relative;
+    bottom: 200px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    &.active-header {
+        font-size: 500%;
+        padding-left: $nml-band-logo-width-desktop;
+
+        bottom: 0;
+    }
+    transition: font-size .3s ease-out, padding-left .3s ease-out, bottom .3s .6s linear;
+}
+
+#nml-hamburger-menu { // appears only on < 720x???px (JS)
     transition: opacity 1s linear;
 
     position: fixed;
@@ -24,7 +60,7 @@ div[ui-view="navbar"] {
 
     font-size: $nml-hamburger-menu-medium-font-size;
     text-align: center;
-    line-height: $nml-hamburger-menu-medium-size * 0.86;
+    line-height: $nml-hamburger-menu-medium-size * 0.9516;
 
     color: $foreground-color;
     background-color: #222222;
@@ -48,6 +84,22 @@ div[ui-view="navbar"] {
     }
 }
 
+#nml-menu-hamburger {
+    position: fixed;
+    top: $nml-hamburger-menu-medium-fixed-position + 4;
+    right: $nml-hamburger-menu-medium-fixed-position * 5.3;
+
+    box-sizing: border-box;
+    font-size: $nml-hamburger-menu-medium-font-size * 0.811 * 0.811 * 0.811;
+    text-align: center;
+    line-height: $nml-hamburger-menu-medium-size * 0.9516 * 0.811 * 0.811;
+    color: $nml-menu-font-color;
+
+    &:hover {
+        color: white;
+    }
+}
+
 #nml-menu {
     padding: 0;
     margin: 0 auto; // auto keeps menu in the center
@@ -56,13 +108,33 @@ div[ui-view="navbar"] {
     text-align: center;
 }
 
+#nml-menu-container-flex-wrapper {
+    //
+    //width: 100%;
+    //height: 100%;
+    //display: flex;
+    //flex-direction: column;
+    //overflow-y: scroll;
+
+    #nml-menu-container {
+
+        //margin-top: $nml-top-margin-size-720-portrait;
+        //padding-top: 30px;
+        animation: menu-fade-in ease-out .8s;
+        //width: 100%;
+
+
+        //background-color: #333;
+    }
+}
+
 
 /* ------------------------------------------------- MOBILE PHONES -------------------------------------------------- */
 @media screen and (max-width: 720px) {
 
-    .nml-page-marker {
-        height: 0;
-    }
+    //.nml-page-marker {
+    //    height: 0;
+    //}
 
     #nml-band-logo-container {
         //background-color: #0F6AB4;
@@ -85,7 +157,7 @@ div[ui-view="navbar"] {
     }
 
     #nml-desktop-header-background {
-      visibility: hidden;
+        visibility: hidden;
     }
 
     #nml-mobile-header-background {
@@ -96,68 +168,156 @@ div[ui-view="navbar"] {
         left: 0;
 
         width: 100%;
-        background-color: black; // TODO extract to variable
-        border-bottom: double #FFFFFF;
+        background-color: #100707; // TODO extract to variable
 
         &.active-header {
             height: $nml-header-size-720-portrait;
-            background-color: rgba(0, 0, 0, .5); // TODO extract to variable
         }
     }
 
-    #nml-menu-container-flex-wrapper {
+    #nml-menu-bubble-outer { // mobile
         position: fixed;
-        top: 0;
-        left: 0;
+        top: $nml-hamburger-menu-medium-fixed-position;
+        right: $nml-hamburger-menu-medium-fixed-position * 3;
 
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        overflow-y: scroll;
+        box-sizing: border-box;
+        width: $nml-hamburger-menu-medium-size;
+        height: $nml-hamburger-menu-medium-size;
+        border-radius: $nml-hamburger-menu-medium-size / 2;
 
-        #nml-menu-container {
-            &.active-header {
-                margin-top: $nml-header-size-720-portrait;
+        background-color: #100707;
+
+        transition: width .1s .15s ease-out, height .1s .15s ease-out, top .1s .15s ease-out, right .1s .15s ease-out, border-radius .1s .15s ease-out;
+
+        &.active {
+            top: $nml-hamburger-menu-medium-fixed-position - $nml-hamburger-menu-medium-size / 2 * 16 + 50;
+            right: ($nml-hamburger-menu-medium-fixed-position * 3) - $nml-hamburger-menu-medium-size / 2 * 16 + 100;
+
+            width: $nml-hamburger-menu-medium-size * 16;
+            height: $nml-hamburger-menu-medium-size * 16;
+            border-radius: $nml-hamburger-menu-medium-size / 2 * 16;
+
+            transition: width .45s ease-in, height .45s ease-in, top .45s ease-in, right .45s ease-in, border-radius .45s ease-in;
+        }
+
+        #nml-menu-bubble-middle { // mobile
+            position: fixed;
+            top: $nml-hamburger-menu-medium-fixed-position + $nml-hamburger-menu-medium-fixed-position * 0.2;
+            right: $nml-hamburger-menu-medium-fixed-position * 3 + $nml-hamburger-menu-medium-fixed-position * 3 * 0.2;
+
+            box-sizing: border-box;
+            width: $nml-hamburger-menu-medium-size * 0.811;
+            height: $nml-hamburger-menu-medium-size * 0.811;
+            border-radius: $nml-hamburger-menu-medium-size / 2 * 0.811;
+
+            background-color: #541A1A;
+
+            transition: width .15s .07s ease-out, height .15s .07s ease-out, top .15s .07s ease-out, right .15s .07s ease-out, border-radius .15s .07s ease-out;
+
+            &.active {
+                top: $nml-hamburger-menu-medium-fixed-position + ($nml-hamburger-menu-medium-fixed-position *0.2 ) - ($nml-hamburger-menu-medium-size * 0.951) / 2 * 16 + 55;
+                right: ($nml-hamburger-menu-medium-fixed-position * 3) + ($nml-hamburger-menu-medium-fixed-position * 3 * 0.2) - ($nml-hamburger-menu-medium-size * 0.951) / 2 * 16 + 35;
+
+                width: $nml-hamburger-menu-medium-size * 16 * 0.951;
+                height: $nml-hamburger-menu-medium-size * 16 * 0.951;
+                border-radius: $nml-hamburger-menu-medium-size / 2 * 16 * 0.951;
+
+                transition: width .35s .15s ease-in, height .35s .15s ease-in, top .35s .15s ease-in, right .35s .15s ease-in, border-radius .35s .15s ease-in;
             }
-            padding-top: 35px;
-            animation: menu-fade-in ease-out .4s;
-            transition: ease-out .4s;
-            width: 100%;
 
-            background-color: #333;
+            #nml-menu-bubble-inner { // mobile
+                position: fixed;
+                top: $nml-hamburger-menu-medium-fixed-position + $nml-hamburger-menu-medium-fixed-position * 0.4;
+                right: $nml-hamburger-menu-medium-fixed-position * 3 + $nml-hamburger-menu-medium-fixed-position * 3 * 0.4;
 
-            #nml-menu {
-                li {
-                    //float: left;
-                    box-sizing: border-box;
-                    //border-top: solid 1px #444;
-                    //border-bottom: solid 1px #222;
-                    padding: $nml-gap-720-portrait;
-                    //width: 100%;
-                    //width: 50%;
+                box-sizing: border-box;
+                width: $nml-hamburger-menu-medium-size * 0.811 * 0.811;
+                height: $nml-hamburger-menu-medium-size * 0.811 * 0.811;
+                border-radius: $nml-hamburger-menu-medium-size / 2 * 0.811 * 0.811;
 
-                    color: $foreground-color;
-                    background-color: #333;
-                    font-size: $nml-menu-item-font-size-720-portrait;
+                background-color: #9D4E02;
 
-                    &:hover {
-                        background-color: #444;
-                        transition: ease-out .2s;
-                    }
-                    &:active {
-                        background-color: #222;
-                        transition: ease-out .2s;
-                    }
-                    &:focus {
-                      color: #467e9f;
-                      outline: none;
-                    }
+                transition: width .2s ease-out, height .2s ease-out, top .2s ease-out, right .2s ease-out, border-radius .2s ease-out;
+
+                &.active {
+                    top: $nml-hamburger-menu-medium-fixed-position + ($nml-hamburger-menu-medium-fixed-position *0.4 ) - ($nml-hamburger-menu-medium-size * 0.951) / 2 * 16;
+                    right: ($nml-hamburger-menu-medium-fixed-position * 3) + ($nml-hamburger-menu-medium-fixed-position * 3 * 0.4) - ($nml-hamburger-menu-medium-size * 0.951) / 2 * 16;
+
+                    width: $nml-hamburger-menu-medium-size * 16 * 0.951 * 0.951;
+                    height: $nml-hamburger-menu-medium-size * 16 * 0.951 * 0.951;
+                    border-radius: $nml-hamburger-menu-medium-size / 2 * 16 * 0.951 * 0.951;
+
+                    transition: width .45s .15s ease-in, height .45s .15s ease-in, top .45s .15s ease-in, right .45s .15s ease-in, border-radius .45s .15s ease-in;
                 }
             }
         }
+    } // end mobile style #nml-bubble-menu-outer
+
+    #nml-menu { // mobile
+        position: fixed;
+        &.active-header {
+            //margin-top: $nml-header-size-desktop - $nml-small-header-size-desktop;
+            top: 150px;
+        }
+        top: 60px;
+        left: 0;
+        //width: 900px;
+        li.nml-menu-item { // mobile
+            transition: ease-out .2s;
+            float: left;
+            box-sizing: border-box;
+            //border-left: solid 1px #444;
+            //border-right: solid 1px #222;
+            padding-left: $nml-gap-720-portrait;
+            padding-right: $nml-gap-720-portrait;
+            //margin-left: 25px;
+            //margin-right: 25px;
+            //width: 68px; /////////////////////// makes a fixed width horiyontal list
+            width: 50%;
+            transition: width .5s linear;
+
+            //background-color: #333;
+            font-size: 250%;
+            font-weight: bolder;
+
+            color: $nml-menu-font-color;
+
+            &:hover {
+                //background-color: #444;
+                color: white;
+                transition: ease-out .2s;
+            }
+            &:active {
+                //background-color: #222;
+                transition: ease-out .2s;
+            }
+            &:focus {
+                //color: #467e9f;
+                outline: #FFF solid 1px;
+            }
+        }
+        li.nml-menu-item.inactive { // mobile
+            transition: ease-out .2s;
+            float: left;
+            box-sizing: border-box;
+            //border-left: solid 1px #444;
+            //border-right: solid 1px #222;
+            padding-left: $nml-gap-720-portrait;
+            padding-right: $nml-gap-720-portrait;
+            //margin-left: 25px;
+            //margin-right: 25px;
+            //width: 68px; /////////////////////// makes a fixed width horiyontal list
+            width: 50%;
+            transition: width .5s linear;
+
+            //background-color: #333;
+            font-size: 250%;
+            font-weight: bolder;
+            opacity: .3;
+        }
     }
-}
+
+}// end mobile stile view
 
 
 /* ------------------------------------------- Desktop and landscape view ------------------------------------------- */
@@ -179,10 +339,10 @@ div[ui-view="navbar"] {
         height: auto;
 
         #nml-band-logo {
-            width: 75px;
+            width: 49px;
             transition: ease-out .4s;
             &.active-header {
-                width: $nml-band-logo-width-desktop;
+                width: $nml-band-logo-width-desktop - 20;
                 height: auto;
             }
         }
@@ -198,84 +358,174 @@ div[ui-view="navbar"] {
       left: 0;
 
       width: 100%;
-      background-color: #000000;
-      border-bottom: double #FFFFFF;
+      background-color: #100707;
+      //border-bottom: double #FFFFFF;
 
       transition: ease-out .3s;
       height: $nml-small-header-size-desktop;
       &.active-header {
           height: $nml-header-size-desktop;
-          background-color: rgba(0, 0, 0, .5);
+          background-color: #100707;
       }
   }
 
-  #nml-menu-container-flex-wrapper {
-      //
-      //width: 100%;
-      //height: 100%;
-      //display: flex;
-      //flex-direction: column;
-      //overflow-y: scroll;
+    #nml-menu-bubble-outer {
+        position: fixed;
+        top: $nml-hamburger-menu-medium-fixed-position;
+        right: $nml-hamburger-menu-medium-fixed-position * 3;
 
-      #nml-menu-container {
+        box-sizing: border-box;
+        width: $nml-hamburger-menu-medium-size;
+        height: $nml-hamburger-menu-medium-size;
+        border-radius: $nml-hamburger-menu-medium-size / 2;
 
-          //margin-top: $nml-top-margin-size-720-portrait;
-          //padding-top: 30px;
-          animation: menu-fade-in ease-out .4s;
-          //width: 100%;
+        background-color: #100707;
+
+        transition: width .1s .15s ease-out, height .1s .15s ease-out, top .1s .15s ease-out, right .1s .15s ease-out, border-radius .1s .15s ease-out;
+
+        &.active {
+            top: $nml-hamburger-menu-medium-fixed-position - $nml-hamburger-menu-medium-size / 2 * 41;
+            right: ($nml-hamburger-menu-medium-fixed-position * 3) - $nml-hamburger-menu-medium-size / 2 * 41;
+
+            width: $nml-hamburger-menu-medium-size * 41;
+            height: $nml-hamburger-menu-medium-size * 41;
+            border-radius: $nml-hamburger-menu-medium-size / 2 * 41;
+
+            transition: width .45s ease-in, height .45s ease-in, top .45s ease-in, right .45s ease-in, border-radius .45s ease-in;
+        }
+
+        #nml-menu-bubble-middle {
+            position: fixed;
+            top: $nml-hamburger-menu-medium-fixed-position + $nml-hamburger-menu-medium-fixed-position * 0.2;
+            right: $nml-hamburger-menu-medium-fixed-position * 3 + $nml-hamburger-menu-medium-fixed-position * 3 * 0.2;
+
+            box-sizing: border-box;
+            width: $nml-hamburger-menu-medium-size * 0.811;
+            height: $nml-hamburger-menu-medium-size * 0.811;
+            border-radius: $nml-hamburger-menu-medium-size / 2 * 0.811;
+
+            background-color: #541A1A;
+
+            transition: width .15s .07s ease-out, height .15s .07s ease-out, top .15s .07s ease-out, right .15s .07s ease-out, border-radius .15s .07s ease-out;
+
+            &.active {
+                top: $nml-hamburger-menu-medium-fixed-position + ($nml-hamburger-menu-medium-fixed-position *0.2 ) - ($nml-hamburger-menu-medium-size * 0.951) / 2 * 41 + 80;
+                right: ($nml-hamburger-menu-medium-fixed-position * 3) + ($nml-hamburger-menu-medium-fixed-position * 3 * 0.2) - ($nml-hamburger-menu-medium-size * 0.951) / 2 * 41 - 80;
+
+                width: $nml-hamburger-menu-medium-size * 41 * 0.951;
+                height: $nml-hamburger-menu-medium-size * 41 * 0.951;
+                border-radius: $nml-hamburger-menu-medium-size / 2 * 41 * 0.951;
+
+                transition: width .35s .15s ease-in, height .35s .15s ease-in, top .35s .15s ease-in, right .35s .15s ease-in, border-radius .35s .15s ease-in;
+            }
 
 
-          background-color: #333;
+            #nml-menu-bubble-inner {
+                position: fixed;
+                top: $nml-hamburger-menu-medium-fixed-position + $nml-hamburger-menu-medium-fixed-position * 0.4;
+                right: $nml-hamburger-menu-medium-fixed-position * 3 + $nml-hamburger-menu-medium-fixed-position * 3 * 0.4;
 
-          #nml-menu {
-              position: fixed;
-              transition: ease-out .4s;
-              margin-top: $nml-gap-720-portrait;
-              &.active-header {
-                  margin-top: $nml-header-size-desktop - $nml-small-header-size-desktop;
-              }
-              top: 0;
-              left: $nml-band-logo-width-desktop + $nml-gap-720-portrait*4;
-              //width: 900px;
+                box-sizing: border-box;
+                width: $nml-hamburger-menu-medium-size * 0.811 * 0.811;
+                height: $nml-hamburger-menu-medium-size * 0.811 * 0.811;
+                border-radius: $nml-hamburger-menu-medium-size / 2 * 0.811 * 0.811;
 
-              li {
-                  transition: ease-out .2s;
-                  float: left;
-                  box-sizing: border-box;
-                  //border-left: solid 1px #444;
-                  //border-right: solid 1px #222;
-                  //padding: $nml-gap-720-portrait;
-                  width: 68px;
-                  //width: 50%;
+                background-color: #9D4E02;
 
-                  color: white;
-                  //background-color: #333;
-                  font-size: $nml-menu-item-font-size-desktop;
-                  font-weight: bolder;
+                transition: width .2s ease-out, height .2s ease-out, top .2s ease-out, right .2s ease-out, border-radius .2s ease-out;
 
-                  &:hover {
-                      background-color: #444;
-                      transition: ease-out .2s;
-                  }
-                  &:active {
-                      background-color: #222;
-                      transition: ease-out .2s;
-                  }
-                  &:focus {
-                      //color: #467e9f;
-                      outline: #FFF solid 1px;
-                  }
-              }
+                &.active {
+                    top: $nml-hamburger-menu-medium-fixed-position + ($nml-hamburger-menu-medium-fixed-position *0.4 ) - ($nml-hamburger-menu-medium-size * 0.951) / 2 * 41;
+                    right: ($nml-hamburger-menu-medium-fixed-position * 3) + ($nml-hamburger-menu-medium-fixed-position * 3 * 0.4) - ($nml-hamburger-menu-medium-size * 0.951) / 2 * 41;
+
+
+                    width: $nml-hamburger-menu-medium-size * 41 * 0.951 * 0.951;
+                    height: $nml-hamburger-menu-medium-size * 41 * 0.951 * 0.951;
+                    border-radius: $nml-hamburger-menu-medium-size / 2 * 41 * 0.951 * 0.951;
+
+                    transition: width .45s .15s ease-in, height .45s .15s ease-in, top .45s .15s ease-in, right .45s .15s ease-in, border-radius .45s .15s ease-in;
+                }
             }
         }
+    } // end desktop style #nml-bubble-menu-outer desktop
+
+    #nml-menu { // desktop
+        position: fixed;
+        margin-top: $nml-gap-720-portrait;
+        &.active-header {
+            //margin-top: $nml-header-size-desktop - $nml-small-header-size-desktop;
+        }
+        top: 150px;
+        right: 10%;
+        //width: 900px;
+        li.nml-menu-item { // desktop
+            transition: ease-out .2s;
+            float: left;
+            box-sizing: border-box;
+            //border-left: solid 1px #444;
+            //border-right: solid 1px #222;
+            padding-left: $nml-gap-720-portrait;
+            padding-right: $nml-gap-720-portrait;
+            //margin-left: 25px;
+            //margin-right: 25px;
+            //width: 68px; /////////////////////// makes a fixed width horiyontal list
+            width: 32%;
+            transition: width .5s linear;
+
+            //background-color: #333;
+            font-size: 350%;
+            font-weight: bolder;
+
+            color: $nml-menu-font-color;
+
+            &:hover {
+                //background-color: #444;
+                color: white;
+                transition: ease-out .2s;
+            }
+            &:active {
+                //background-color: #222;
+                transition: ease-out .2s;
+            }
+            &:focus {
+                //color: #467e9f;
+                outline: #FFF solid 1px;
+            }
+        }
+        li.nml-menu-item.inactive { // desktop
+            transition: ease-out .2s;
+            float: left;
+            box-sizing: border-box;
+            //border-left: solid 1px #444;
+            //border-right: solid 1px #222;
+            padding-left: $nml-gap-720-portrait;
+            padding-right: $nml-gap-720-portrait;
+            //margin-left: 25px;
+            //margin-right: 25px;
+            //width: 68px; /////////////////////// makes a fixed width horiyontal list
+            width: 32%;
+            transition: width .5s linear;
+
+            //background-color: #333;
+            font-size: 350%;
+            font-weight: bolder;
+
+            color: $nml-menu-font-color;
+            opacity: .3;
+        }
     }
-}
+} // end desktop view @media screen and (min-width: 721px)
+
+
+
 
 
 @keyframes menu-fade-in {
   0% {
-    //transition: ;
-    //animation:;
+    opacity: 0;
+    margin-top: -800px;
+  }
+  50% {
     opacity: 0;
     margin-top: -800px;
   }

@@ -1,0 +1,23 @@
+{
+    "nmlApp": {
+        "paragraph" : {
+            "home": {
+                "title": "Paragraphs",
+                "createLabel": "Create a new Paragraph",
+                "createOrEditLabel": "Create or edit a Paragraph",
+                "search": "Search for Paragraph"
+            },
+            "created": "A new Paragraph is created with identifier {{ param }}",
+            "updated": "A Paragraph is updated with identifier {{ param }}",
+            "deleted": "A Paragraph is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Paragraph {{ id }}?"
+            },
+            "detail": {
+                "title": "Paragraph"
+            },
+            "text": "Text",
+            "paragraphs_in_section": "Paragraphs_in_section"
+        }
+    }
+}

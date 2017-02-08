@@ -1,0 +1,70 @@
+<div>
+    <h2 translate="nmlApp.article.home.title">Articles</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="article.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                        translate="nmlApp.article.home.createLabel">Create new Article
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="nmlApp.article.title">Title</span></th>
+                    <th><span translate="nmlApp.article.leadin">Leadin</span></th>
+                    <th><span translate="nmlApp.article.created_at">Created_at</span></th>
+                    <th><span translate="nmlApp.article.last_modified">Last_modified</span></th>
+                    <th><span translate="nmlApp.article.article_author_user">article_author_user</span></th>
+                    <th><span translate="nmlApp.article.article_uploadedby_user">article_uploadedby_user</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="article in articles track by article.id">
+                    <td><a ui-sref="article.detail({id:article.id})">{{article.id}}</a></td>
+                    <td>{{article.title}}</td>
+                    <td>{{article.leadin}}</td>
+                    <td>{{article.created_at | date:'medium'}}</td>
+                    <td>{{article.last_modified | date:'medium'}}</td>
+                    <td>
+                        {{article.article_author_userId}}
+                    </td>
+                    <td>
+                        {{article.article_uploadedby_userId}}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="article.detail({id:article.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="article.edit({id:article.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="article.delete({id:article.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
